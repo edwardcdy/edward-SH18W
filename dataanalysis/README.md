@@ -1,5 +1,7 @@
 ## Data Analysis Challenge
 
+GitHub is awesome and allows you to view ipynb , so you can click on either of the .ipynb and view my results in your browser! 
+
 ### Dependencies & Install
 I ran the included .ipynb in a jupyter notebook. You will need python 2 and jupyter to run it, along with the following python packages: pandas, numpy, and matplotlib.
 
