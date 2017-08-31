@@ -1,0 +1,107 @@
+$text-color: #FFF;
+$brand-dark: #000639;
+$brand-light: #5c6ac4;
+$success-color: #7AB55C;
+$error-color: #C23628;
+
+$base-font-size: 16px;
+$title-font-size: 24px;
+$field-status-font-size: 13px;
+
+.newsletter-signup {
+  text-align: center;
+
+  background-color: $brand-dark;
+  color: $text-color;
+
+  font-size: $base-font-size;
+  font-family: Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 100;
+  
+  padding: 2% 0 2% 0;
+
+  .pitch-primary {
+    margin: auto;
+    padding-top: 3%;
+    font-size: $title-font-size;  
+    max-width: 40%;
+    font-weight: 600;
+  }
+
+  .pitch-secondary {
+    margin: auto;
+    
+    padding: 1% 0 1% 0;
+    
+  }
+
+  .inputRow {
+    $inputHeight: 43px;
+    $inputWidth: 130px;
+
+    input {
+      margin-right: 5px;
+      padding-left: 15px;
+
+      width: $inputWidth * 1.80;
+      height: $inputHeight;
+      font-size: $field-status-font-size;
+      
+      border-radius: 5px;
+      border: none;
+    }
+    
+    input:focus {
+      outline: none;
+    }
+
+    button {
+      width: $inputWidth;
+      height: $inputHeight;
+      font-size: $field-status-font-size;
+      
+      background-color: $brand-light;
+      color: $text-color;
+   
+      border-radius: 5px;
+      border: none;
+      
+      -webkit-transition: background-color .3s, color .3s;
+      transition: background-color .5s, color .5s;
+    }
+    
+    button:focus {
+      outline: none;
+    }
+
+    button:hover {
+      background-color: $text-color;
+      color: $brand-light;
+      
+      cursor: pointer;
+      cursor: hand;
+    }
+    
+  }
+
+  .unsubscribe {
+    padding: 1% 0 1% 0;
+    font-size: $base-font-size;
+  }
+
+  #error {
+    padding-top: 6px;
+    
+    font-size: $base-font-size * .8;
+    font-weight: 500;
+    
+    color: $error-color;
+   
+    display: none;
+  }
+  
+}
+
+
+

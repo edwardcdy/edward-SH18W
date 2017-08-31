@@ -5,10 +5,10 @@ var request         = require('request');
 var app = module.exports = express();
 
 
-// Create a new user 
-app.post('/customers',function(req,res){
+// endpoint for GET /customers, processes invalid customers from shopify api
+app.get('/customers',function(req,res){
    
-  var pageNum = (req.body.pagenum || 0);
+  var pageNum = (req.query.pagenum || 0);
   var reqAddress = settings.address + pageNum;
 
   request.get(
@@ -22,11 +22,12 @@ app.post('/customers',function(req,res){
   
 });
 
+
+// utility function, validates customers and sends data via res object
 var process = function(res, dataStr){
 
   data = JSON.parse(dataStr);
   var types = {};
-  //var requiredKeys = [];
   
   // defensive, check that the object we got back does indeed have a 'validations' array
   if (data.validations){
@@ -55,7 +56,7 @@ var process = function(res, dataStr){
   // defensive, check that data we got back does indeed have customers
   if (data.customers){
 
-    // 
+    // validate each customer
     data.customers.forEach(function(customer){
       var errRecord = {};
       var invalid = [];
@@ -66,6 +67,7 @@ var process = function(res, dataStr){
           // if required field is not in customer, it's an error
           if (types[key].required && !customer.hasOwnProperty(key)){
             invalid.push(key);
+
           } else if (customer.hasOwnProperty(key)){
 
             if (types[key].type && typeof(customer[key]) != types[key].type){
@@ -92,9 +94,6 @@ var process = function(res, dataStr){
     });
 
   }
-
-  //console.log(types);
-  //console.log(data.customers);
   
   res.json(response);
 }
