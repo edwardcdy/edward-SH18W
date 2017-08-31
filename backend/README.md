@@ -18,12 +18,10 @@ Queries a corresponding backend endpoint at https://backend-challenge-winter-201
 customer data on the specified page. 
 
 
-Expects the following body:
-
-    {
-      (optional) pagenum: 2
-    }
-
+Expects the following query string:
+```
+    ?pagenum=3
+```
 If pagenum is not specified, defaults to 0.
 
 
